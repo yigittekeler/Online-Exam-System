@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load quiz_tags %}
+{% block title %}{% trans "Aktif Sınavlar" %}{% endblock %}
+
+{% block content %}
+<h2>{% trans "Sınav Listesi" %}</h2>
+    {% if quiz_list %}
+		<table class="table table-bordered table-striped">
+
+		  <thead>
+			<tr>
+			  <th>{% trans "Sınav Adı" %}</th>
+			  <th>{% trans "Kategori" %}</th>
+			  <th>{% trans "Link" %}</th>
+
+			</tr>
+		  </thead>
+
+		  <tbody>
+
+        {% for quiz in quiz_list %}
+
+  			<tr>
+			  <td>{{ quiz.title }}</td>
+			  <td>{{ quiz.category }}</td>
+			  
+			  
+			  <td>
+				<a href="{% url 'quiz_start_page' slug=quiz.url %}">
+				  {% trans "Sınava git" %}
+				</a>
+			</tr>
+
+        {% endfor %}
+		  </tbody>
+
+		</table>
+
+	{% else %}
+        <p>{% trans "Sistemde aktif sınav bulunmamaktadır..." %}.</p>
+    {% endif %}
+{% endblock %}

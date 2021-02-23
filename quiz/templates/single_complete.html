@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% load quiz_tags %}
+
+{% block title %} {{ quiz.title }} {% endblock %}
+
+
+{% block content %}
+
+
+{% if user.is_authenticated %}
+  <p>{% trans "Bu sınava daha önce girdiniz." %}.</p>
+{% else %}
+  <p>{% trans "Bu sınava sadece kayıtlı kullanıcılar girebilir." %}.</p>
+{% endif %}
+
+{% endblock %}

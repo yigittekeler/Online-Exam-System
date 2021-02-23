@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}
+{{ quiz.title }}
+{% endblock %}
+
+{% block content %}
+<h2>{{ quiz.title }}</h2>
+<h3>{% trans "Kategori" %}: {{ quiz.category }}</h3>
+
+<p>
+  <a href="{% url 'quiz_question' quiz_name=quiz.url %}">
+	{% trans "Sınava Başla" %}
+  </a>
+</p>
+{% endblock %}

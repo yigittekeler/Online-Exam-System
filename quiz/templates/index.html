@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Kullanıcı Bilgileri </h1>
+{% if user.is_authenticated %}
+    <p>Kullanıcı ismi: {{user.username}}</p>
+    <p>isim: {{user.first_name}} {{user.last_name}}</p>
+    <p>Email: {{user.email}}</p>
+{% endif %}
+    
+{% endblock  %}
