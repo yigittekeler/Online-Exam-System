@@ -5,7 +5,7 @@ from .views import QuizListView, CategoriesListView,\
 from django.urls import path
 
 
-urlpatterns = [         url(regex=r'^$', view=index, name='index'),
+urlpatterns = [         url('', view=index, name='index'),
                         url(regex=r'^login/$', view=login_user, name='login'),
                         url(regex=r'^logout/$', view=logout_user, name='logout'),
                        url(regex=r'^quizzes/$',
